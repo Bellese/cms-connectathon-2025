@@ -1,0 +1,25 @@
+{
+  "implementation_guides": [
+    {
+      "name": "US_Core",
+      "canonical_url": "http://hl7.org/fhir/us/core",
+      "source": "https://packages.fhir.org/hl7.fhir.us.core/6.1.0"
+    },
+    {
+      "name": "QiCore",
+      "canonical_url": "http://hl7.org/fhir/us/qicore",
+      "source": "https://packages.fhir.org/hl7.fhir.us.qicore/6.0.0"
+    },
+    {
+      "name": "DEQM",
+      "canonical_url": "http://hl7.org/fhir/us/davinci-deqm",
+      "source": "https://packages.fhir.org/hl7.fhir.us.davinci-deqm/5.0.0"
+    },
+    {
+      "name": "CQF_Measures",
+      "canonical_url": "http://hl7.org/fhir/us/cqfmeasures",
+      "source": "https://packages.fhir.org/hl7.fhir.us.cqfmeasures/5.0.0"
+    }
+  ],
+  "value_sets": []
+}
