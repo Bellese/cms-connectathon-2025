@@ -27,7 +27,7 @@ The Bellese FHIR server is running HAPI FHIR JPA Server version 8.2 and is pre-l
 
 For Bellese’s test environment, value sets were pulled from the VSAC 2025 eCQM download page:  
 https://vsac.nlm.nih.gov/download/ecqm?rel=2025  
-and expanded using the VSAC FHIR API. Each organization may use their own methods or tools to load value sets.
+and expanded using the VSAC FHIR API.
 
 # Measures on the Server
 
