@@ -6,9 +6,7 @@ It includes:
 
 - Scripts and tooling to interact with the Bellese-hosted FHIR server  
 - Test data sets and supporting artifacts  
-- Information about the measures being tested  
-- Guidance for evaluating measure calculations  
-- Details about the server setup and available Implementation Guides (IGs)
+- Guidance for evaluating measures  
 
 # FHIR Server
 
@@ -54,17 +52,6 @@ curl -X GET "https://connectathon.fhir-sandbox.bellese.dev/fhir/Measure" \
 ```
 
 This returns a JSON Bundle of all Measure resources. You can inspect id, name, and url fields to identify what's available.
-
-# Measure Evaluation
-
-Example: Evaluate a Single Measure for One Patient
-
-```
-curl --location \
-  "https://connectathon.fhir-sandbox.bellese.dev/fhir/Measure/CMS506FHIRSafeUseofOpioids/$evaluate-measure?periodStart=2026-01-01&periodEnd=2026-12-31&subject=<PatientID>&reportType=subject"
-```
-
-Replace <PatientID> with the actual patient resource ID.
 
 # How to Test Evaluating a Measure
 
