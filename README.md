@@ -10,8 +10,6 @@ It includes:
 - Guidance for evaluating measure calculations  
 - Details about the server setup and available Implementation Guides (IGs)
 
----
-
 # FHIR Server
 
 FHIR Base URL:  
@@ -76,8 +74,6 @@ todo
 
 todo
 
----
-
-Contributing
+# Contributing
 
 Contributions and issues are welcome as we prepare for the Connectathon. Please open a pull request or issue with questions or additions.
