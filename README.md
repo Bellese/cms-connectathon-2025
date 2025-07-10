@@ -53,13 +53,33 @@ curl -X GET "https://connectathon.fhir-sandbox.bellese.dev/fhir/Measure" \
 
 This returns a JSON Bundle of all Measure resources. You can inspect id, name, and url fields to identify what's available.
 
-# How to Test Evaluating a Measure
+# How to Evaluate One or More Measures
 
-todo
+The `/fhir/Measure/$evaluate` operation can be used to evaluate one or more measures on the server.
+Include one or more `measureId` query parameters in your request with the IDs of the measures to be evaluated.
+Refer to the [HL7 documentation](https://build.fhir.org/ig/HL7/davinci-deqm/OperationDefinition-evaluate.html)
+for details on the `$evaluate` operation and its parameters.
 
-# How to Test Evaluating Multiple Measures
+This sample GET URL evaluates two parameters for a single patient:
 
-todo
+```
+https://connectathon.fhir-sandbox.bellese.dev/fhir/Measure/$evaluate?measureId==CMS816FHIRHHHypo&measureId==CMS506FHIRSafeUseofOpioids&periodStart==2026-01-01&periodEnd==2026-12-31&subject==1d298cf0-aa38-4943-ba4c-f7209cf59e63&reportType=subject
+````
+
+This curl command sends the sample request to the Bellese server.
+The result should be a JSON encoded [Bundle resource](https://hl7.org/fhir/R4/bundle.html).
+
+```
+curl --get \
+     --header 'Accept: application/fhir+json' \
+     --data 'measureId=CMS816FHIRHHHypo' \
+     --data 'measureId=CMS506FHIRSafeUseofOpioids' \
+     --data 'periodStart=2026-01-01' \
+     --data 'periodEnd=2026-12-31' \
+     --data 'subject=1d298cf0-aa38-4943-ba4c-f7209cf59e63' \
+     --data 'reportType=subject' \
+     'https://connectathon.fhir-sandbox.bellese.dev/fhir/Measure/$evaluate'
+```
 
 # Contributing
 
