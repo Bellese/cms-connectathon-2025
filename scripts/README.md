@@ -31,3 +31,42 @@ This script automates the loading of FHIR Implementation Guides (IGs) and ValueS
 curl -s "$FHIR_SERVER_URL/ImplementationGuide?_count=1000" \
   | jq -r '.entry[].resource.url' | sort | uniq -c
 ```
+
+# import_testcases.py
+
+This script imports FHIR JSON testcases to a FHIR server.
+Follow these steps to run it:
+
+1. **Install dependencies**  
+   ```bash
+   make install
+   # or
+   pip install -r requirements.txt
+   ```
+2. **Prepare your test data directory**  
+   - By default, the script looks in `test/`.  
+   - Alternatively, you can pass a path to any root folder as the first argument.  
+   - That directory must contain one subdirectory per measure, for example:  
+     ```text
+     test/
+     ├── CMS122FHIR-v0.5.000-FHIR6-TestCases/
+     ├── CMS165FHIR-v0.5.000-FHIR6-TestCases/
+     └── CMS506FHIR-v0.3.005-FHIR6-TestCases/
+     ```
+
+3. **Run the script**  
+   ```bash
+   python scripts/import_testcases.py [--verbose]
+   ```
+   - Omitting the folder argument defaults to `test/`.  
+   - Use `--verbose` for debug logging.
+
+4. **Check exit codes**  
+   - `0` → All testcases uploaded successfully  
+   - `1` → Invalid arguments or directory not found  
+   - `2` → Some uploads failed
+
+**Example:**  
+```bash
+python scripts/import_testcases.py
+```
