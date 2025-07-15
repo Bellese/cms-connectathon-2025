@@ -70,3 +70,29 @@ Follow these steps to run it:
 ```bash
 python scripts/import_testcases.py
 ```
+
+# evaluate_tests.py
+
+This script fetches each uploaded `MeasureReport` from the FHIR server and checks that the population code encoded in the filename (e.g. `denom`, `denomexcept`) has a non-zero count.
+
+1. **Install dependencies**  
+   ```bash
+   make install  # or: pip install -r requirements.txt
+   ```
+2. **Ensure your test data is in** `test/` **folder (or supply a path)**  
+   The folder must contain one subdirectory per measure, each with JSON files named like `MeasureID-PopulationCode.json`.
+3. **Run the script**  
+   ```bash
+   python scripts/evaluate_tests.py [<test_root_directory>] [--verbose]
+   ```
+   - Defaults to `test/` if no directory is provided.  
+   - `--verbose` enables debug logs.
+4. **Check exit codes**  
+   - `0` → All testcases passed  
+   - `1` → Invalid arguments or directory not found  
+   - `2` → One or more testcases failed
+
+**Example:**  
+```bash
+python scripts/evaluate_tests.py --verbose
+```
